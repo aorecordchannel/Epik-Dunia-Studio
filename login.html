@@ -155,20 +155,20 @@
             <p>Platform perencana aplikasi cerdas Anda</p>
         </div>
 
-        <div id="error-box" class="error-message"></div>
+        <div id="loginError" class="error-message"></div>
 
         <form id="auth-form">
             <div class="form-group">
-                <label for="email">Alamat Email</label>
-                <input type="email" id="email" class="form-control" placeholder="nama@email.com" required>
+                <label for="loginEmail">Alamat Email</label>
+                <input type="email" id="loginEmail" class="form-control" placeholder="Masukkan alamat email" required>
             </div>
             
             <div class="form-group">
-                <label for="password">Kata Sandi</label>
-                <input type="password" id="password" class="form-control" placeholder="••••••••" required>
+                <label for="loginPassword">Kata Sandi</label>
+                <input type="password" id="loginPassword" class="form-control" placeholder="Masukkan kata sandi" required>
             </div>
             
-            <button type="submit" id="submit-btn" class="btn-primary">Masuk</button>
+            <button type="submit" id="loginButton" class="btn-primary">Masuk</button>
         </form>
 
         <div class="divider">ATAU</div>
@@ -196,11 +196,11 @@
         let isLoginMode = true;
         
         const form = document.getElementById('auth-form');
-        const submitBtn = document.getElementById('submit-btn');
+        const loginButton = document.getElementById('loginButton');
         const googleBtn = document.getElementById('google-btn');
         const toggleLink = document.getElementById('toggle-link');
         const headerTitle = document.querySelector('.login-header h2');
-        const errorBox = document.getElementById('error-box');
+        const loginError = document.getElementById('loginError');
 
         // Toggle Login / Register
         toggleLink.addEventListener('click', (e) => {
@@ -208,31 +208,31 @@
             isLoginMode = !isLoginMode;
             if (isLoginMode) {
                 headerTitle.textContent = "Masuk ke EDS Workspace";
-                submitBtn.textContent = "Masuk";
+                loginButton.textContent = "Masuk";
                 toggleLink.textContent = "Daftar Akun Baru";
                 toggleLink.previousSibling.textContent = "Belum punya akun? ";
             } else {
                 headerTitle.textContent = "Buat Akun Baru EDS";
-                submitBtn.textContent = "Daftar";
+                loginButton.textContent = "Daftar";
                 toggleLink.textContent = "Masuk di sini";
                 toggleLink.previousSibling.textContent = "Sudah punya akun? ";
             }
-            errorBox.style.display = 'none';
+            loginError.style.display = 'none';
         });
 
         function showError(msg) {
-            errorBox.textContent = msg;
-            errorBox.style.display = 'block';
+            loginError.textContent = msg;
+            loginError.style.display = 'block';
         }
 
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
+            const email = document.getElementById('loginEmail').value.trim();
+            const password = document.getElementById('loginPassword').value.trim();
             
-            submitBtn.disabled = true;
-            submitBtn.textContent = "Memproses...";
-            errorBox.style.display = 'none';
+            loginButton.disabled = true;
+            loginButton.textContent = "Memproses...";
+            loginError.style.display = 'none';
 
             let result;
             if (isLoginMode) {
@@ -243,14 +243,14 @@
 
             if (!result.success) {
                 showError(result.error);
-                submitBtn.disabled = false;
-                submitBtn.textContent = isLoginMode ? "Masuk" : "Daftar";
+                loginButton.disabled = false;
+                loginButton.textContent = isLoginMode ? "Masuk" : "Daftar";
             }
             // If success, checkAuthAndRedirect listener in auth.js will automatically redirect
         });
 
         googleBtn.addEventListener('click', async () => {
-            errorBox.style.display = 'none';
+            loginError.style.display = 'none';
             const result = await loginWithGoogle();
             if (!result.success) {
                 showError(result.error);

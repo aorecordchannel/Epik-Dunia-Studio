@@ -1,0 +1,212 @@
+/* Dashboard/dashboard.css */
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: #070811;
+    color: #ffffff;
+    font-family: Inter, system-ui, sans-serif;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* ADMIN LOGIN PAGE */
+.admin-login-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+}
+
+.admin-login-card {
+    width: 100%;
+    max-width: 420px;
+    padding: 32px;
+    border-radius: 24px;
+    background: rgba(18, 20, 34, 0.95);
+    border: 1px solid rgba(255,255,255,0.12);
+    box-shadow: 0 24px 80px rgba(0,0,0,0.45);
+}
+
+.admin-login-card input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 14px 16px;
+    border-radius: 14px;
+    border: 1px solid rgba(255,255,255,0.15);
+    background: #0d1020;
+    color: white;
+    outline: none;
+    margin-bottom: 14px;
+    font-family: inherit;
+}
+
+.admin-login-card input:focus {
+    border-color: #18d5ff;
+}
+
+.admin-login-card button {
+    width: 100%;
+    padding: 14px 18px;
+    border-radius: 999px;
+    border: none;
+    cursor: pointer;
+    font-weight: 800;
+    color: white;
+    background: linear-gradient(90deg, #18d5ff, #7c4dff);
+    transition: opacity 0.2s;
+    font-family: inherit;
+}
+
+.admin-login-card button:hover {
+    opacity: 0.9;
+}
+
+.admin-login-card button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* DASHBOARD LAYOUT */
+.admin-layout { 
+    display: flex; 
+    height: 100vh; 
+    overflow: hidden;
+}
+.admin-sidebar {
+    width: 250px;
+    background: rgba(18, 20, 34, 0.95);
+    border-right: 1px solid rgba(255,255,255,0.12);
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+}
+.admin-nav {
+    flex: 1;
+}
+.admin-nav a {
+    display: block;
+    padding: 0.8rem 1rem;
+    color: rgba(255,255,255,0.6);
+    text-decoration: none;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+    transition: all 0.2s;
+}
+.admin-nav a:hover, .admin-nav a.active {
+    background: rgba(249, 115, 22, 0.1);
+    color: #f97316;
+}
+
+.btn-logout {
+    width: 100%;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.15);
+    color: rgba(255,255,255,0.6);
+    padding: 0.8rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: inherit;
+}
+.btn-logout:hover {
+    background: rgba(239, 68, 68, 0.1);
+    color: #ef4444;
+    border-color: rgba(239, 68, 68, 0.3);
+}
+
+.admin-content {
+    flex: 1;
+    padding: 2rem 3rem;
+    overflow-y: auto;
+}
+.content-header {
+    margin-bottom: 2.5rem;
+}
+
+/* STATS GRID */
+.stats-grid {
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+    gap: 1.5rem; 
+    margin-bottom: 2rem;
+}
+.stat-card {
+    padding: 1.5rem;
+    background: rgba(18, 20, 34, 0.95);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 16px;
+}
+.stat-card h4 {
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+.stat-card h2 {
+    font-size: 2rem;
+    color: #fff;
+    margin: 0;
+}
+
+/* TABLES */
+.table-wrapper {
+    background: rgba(18, 20, 34, 0.95);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 12px;
+    overflow-x: auto;
+    margin-top: 1rem;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 800px;
+}
+th, td {
+    padding: 1rem 1.2rem;
+    text-align: left;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    font-size: 0.9rem;
+}
+th {
+    background: rgba(255, 255, 255, 0.02);
+    color: rgba(255,255,255,0.6);
+    font-weight: 600;
+}
+tr:last-child td {
+    border-bottom: none;
+}
+tr:hover td {
+    background: rgba(255,255,255,0.02);
+}
+
+.badge {
+    padding: 0.2rem 0.6rem;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    display: inline-block;
+}
+.badge.success { background: rgba(16, 185, 129, 0.1); color: #10b981; }
+.badge.warning { background: rgba(245, 158, 11, 0.1); color: #f59e0b; }
+.badge.danger { background: rgba(239, 68, 68, 0.1); color: #ef4444; }
+
+.btn-action {
+    background: transparent;
+    color: #10b981;
+    border: 1px solid #10b981;
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: 600;
+    transition: all 0.2s;
+    margin-right: 0.5rem;
+    font-family: inherit;
+}
+.btn-action:hover {
+    background: #10b981;
+    color: white;
+}

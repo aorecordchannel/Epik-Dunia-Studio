@@ -138,11 +138,41 @@ async function createNewUserDoc(user) {
 // === AUTHENTICATION LOGIC ===
 
 export async function loginWithEmail(email, password) {
+    const ADMIN_EMAIL = "salmanbs2018@gmail.com";
+    const ADMIN_PASSWORD = "armanofi88";
+
+    // Cek admin terlebih dahulu sebelum Firebase
+    if (email === ADMIN_EMAIL && password === ADMIN_PASSWORD) {
+        try {
+            // Ambil token dari Netlify Function untuk mengamankan API Dashboard
+            const adminRes = await fetch('/.netlify/functions/admin-login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ username: email, password: password })
+            });
+            const adminData = await adminRes.json();
+            
+            if (adminData.success) {
+                sessionStorage.setItem("eds_admin_logged_in", "true");
+                sessionStorage.setItem("eds_admin_email", ADMIN_EMAIL);
+                sessionStorage.setItem("eds_admin_role", "admin");
+                sessionStorage.setItem("eds_admin_token", adminData.token); // Penting untuk fungsi dashboard
+                window.location.href = "/Dashboard";
+                // Jangan lanjut ke Firebase
+                return new Promise(() => {}); // Biarkan redirect berjalan tanpa resolve UI
+            } else {
+                return { success: false, error: "Verifikasi admin gagal di server (cek .env)." };
+            }
+        } catch (error) {
+            return { success: false, error: "Gagal menghubungi server admin." };
+        }
+    }
+
     try {
         const userCredential = await signInWithEmailAndPassword(auth, email, password);
         return { success: true, user: userCredential.user };
     } catch (error) {
-        return { success: false, error: getAuthErrorMessage(error.code) };
+        return { success: false, error: "Login gagal. Periksa alamat email dan kata sandi Anda." };
     }
 }
 

@@ -1,4 +1,5 @@
 const admin = require('firebase-admin');
+const { verifyAdminToken } = require('./admin-auth');
 
 if (!admin.apps.length) {
     admin.initializeApp({
@@ -13,16 +14,8 @@ exports.handler = async (event, context) => {
     }
 
     try {
-        const authHeader = event.headers.authorization || '';
-        const token = authHeader.split('Bearer ')[1];
-        if (!token) return { statusCode: 401, body: JSON.stringify({ success: false, error: 'Unauthorized' }) };
-
-        const decodedToken = await admin.auth().verifyIdToken(token);
-        
-        // Verify admin role
-        const adminDoc = await db.collection('users').doc(decodedToken.uid).get();
-        if (!adminDoc.exists || adminDoc.data().role !== 'admin') {
-            return { statusCode: 403, body: JSON.stringify({ success: false, error: 'Akses ditolak. Anda bukan admin.' }) };
+        if (!verifyAdminToken(event)) {
+            return { statusCode: 401, body: JSON.stringify({ success: false, error: 'Akses admin ditolak' }) };
         }
 
         const { apiKey, model } = JSON.parse(event.body);
