@@ -24,11 +24,11 @@ async function callFunction(name, payload = {}) {
             body: JSON.stringify(payload)
         });
     } catch (error) {
-        throw new Error("Backend Netlify Function tidak ditemukan. Pastikan domain ini terhubung ke Netlify site atau gunakan domain eds-ai.netlify.app.");
+        throw new Error("Backend Netlify Function tidak ditemukan. Pastikan domain ini terhubung ke Netlify site atau gunakan domain epikduniastudio.cloud.");
     }
 
     if (response.status === 404) {
-        throw new Error("Backend Netlify Function tidak ditemukan. Pastikan domain ini terhubung ke Netlify site atau gunakan domain eds-ai.netlify.app.");
+        throw new Error("Backend Netlify Function tidak ditemukan. Pastikan domain ini terhubung ke Netlify site atau gunakan domain epikduniastudio.cloud.");
     }
 
     const text = await response.text();

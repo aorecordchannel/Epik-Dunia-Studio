@@ -8,14 +8,13 @@ const firebaseConfig = {
   measurementId: "G-KBX25WSBEC"
 };
 
-// Agar Firebase login berjalan, tambahkan domain berikut di Firebase Console:
+// Agar Firebase Auth berjalan di domain production, tambahkan domain berikut di Firebase Console:
 // Authentication > Settings > Authorized domains
-//
-// Tambahkan:
-// - eds-ai.netlify.app
-// - localhost
-// - 127.0.0.1
-// - zyhr9h3k1ddfhjz9p2uxzu5s.103.247.11.249.sslip.io
+// epikduniastudio.cloud
+// www.epikduniastudio.cloud
+// eds-ai.netlify.app
+// localhost
+// 127.0.0.1
 
 if (window.location.protocol === "file:") {
     console.warn("Firebase tidak diinisialisasi karena dijalankan dari file:// protocol.");
