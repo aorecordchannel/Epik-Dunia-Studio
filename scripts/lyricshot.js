@@ -11,7 +11,7 @@ async function checkSubscription() {
 
     try {
         const token = await user.getIdToken();
-        const response = await fetch('/.netlify/functions/check-subscription', {
+        const response = await fetch(`${window.APP_CONFIG.FUNCTIONS_BASE}/check-subscription`, {
             method: 'POST',
             headers: { 'Authorization': `Bearer ${token}` }
         });
@@ -40,7 +40,7 @@ async function checkSubscription() {
 
             if (result.subscriptionStatus === 'expired') {
                 alert('Paket Anda sudah expired. Silakan perpanjang paket.');
-                window.location.href = 'harga.html';
+                window.location.href = '/harga.html';
             }
         }
     } catch (error) {
@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const token = await auth.currentUser.getIdToken();
             const inputData = { lyric, genre, mood, mode };
             
-            const response = await fetch('/.netlify/functions/generate-ai', {
+            const response = await fetch(`${window.APP_CONFIG.FUNCTIONS_BASE}/generate-ai`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

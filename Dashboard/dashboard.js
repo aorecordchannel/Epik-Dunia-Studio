@@ -22,7 +22,7 @@ const sectionTitles = {
 // 1. Saat halaman dibuka
 document.addEventListener('DOMContentLoaded', () => {
     if (window.location.protocol === "file:") {
-        document.body.innerHTML = '<h2 style="color:white; text-align:center; margin-top:50px;">Jalankan project dengan npm run dev lalu buka http://localhost:8888/Dashboard</h2>';
+        document.body.innerHTML = '<h2 style="color:white; text-align:center; margin-top:50px;">Jalankan project dengan npm run dev lalu buka /Dashboard</h2>';
         return;
     }
     
@@ -52,7 +52,7 @@ async function adminFetch(endpoint, options = {}) {
         ...(options.headers || {})
     };
 
-    const response = await fetch(`/.netlify/functions/${endpoint}`, {
+    const response = await fetch(`${window.APP_CONFIG.FUNCTIONS_BASE}/${endpoint}`, {
         ...options,
         headers
     });

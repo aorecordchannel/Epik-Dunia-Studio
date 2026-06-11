@@ -7,7 +7,7 @@ export async function selectPlan(planId) {
     
     // Redirect if not logged in
     if (!user) {
-        window.location.href = `login.html?redirect=${encodeURIComponent('harga.html')}`;
+        window.location.href = `/login.html?redirect=${encodeURIComponent('/harga.html')}`;
         return;
     }
     
@@ -20,7 +20,7 @@ export async function selectPlan(planId) {
     
     try {
         const token = await user.getIdToken();
-        const response = await fetch('/.netlify/functions/select-package', {
+        const response = await fetch(`${window.APP_CONFIG.FUNCTIONS_BASE}/select-package`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -37,7 +37,7 @@ export async function selectPlan(planId) {
             
             if (planId === 'free') {
                 msgBox.textContent = "Paket Free berhasil diaktifkan. Anda bisa mulai generate sekarang!";
-                setTimeout(() => window.location.href = 'workspace.html', 2000);
+                setTimeout(() => window.location.href = '/workspace.html', 2000);
             } else {
                 msgBox.innerHTML = `Pesanan paket berhasil dibuat. Silakan lakukan pembayaran ke <strong>BCA: 1234567890 (Epik Dunia Studio)</strong>. Admin akan mengaktifkan paket Anda setelah pembayaran dikonfirmasi. <br>ID Transaksi: ${data.transactionId}`;
             }

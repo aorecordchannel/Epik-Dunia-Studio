@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="styles/main.css">
     <!-- Workspace CSS -->
     <link rel="stylesheet" href="styles/workspace.css">
+    <script src="/src/config.js"></script>
 </head>
 <body>
     <div class="workspace-layout">
@@ -88,7 +89,7 @@
                             <!-- Model Selector -->
                             <div class="model-selector-container">
                                 <button id="model-toggle-btn" class="toolbar-btn">
-                                    <div class="toolbar-icon model-icon-sm">🤖</div>
+                                    <div class="toolbar-icon model-icon-sm">ðŸ¤–</div>
                                     <span id="active-model-name">Gemini 1.5 Pro</span>
                                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
                                 </button>
@@ -96,20 +97,20 @@
                                 <div id="model-dropdown" class="skill-dropdown hidden dropdown-up" style="width: 250px; max-height: 350px; overflow-y: auto;">
                                     <div class="dropdown-title">PILIH MODEL AI</div>
                                     <div class="model-group-title">Gemini</div>
-                                    <div class="skill-item active model-item" data-model="Gemini 1.5 Pro"><div class="skill-info"><h4>Gemini 1.5 Pro</h4></div><div class="check-icon">✓</div></div>
-                                    <div class="skill-item model-item" data-model="Gemini 1.5 Flash"><div class="skill-info"><h4>Gemini 1.5 Flash</h4></div><div class="check-icon">✓</div></div>
+                                    <div class="skill-item active model-item" data-model="Gemini 1.5 Pro"><div class="skill-info"><h4>Gemini 1.5 Pro</h4></div><div class="check-icon">âœ“</div></div>
+                                    <div class="skill-item model-item" data-model="Gemini 1.5 Flash"><div class="skill-info"><h4>Gemini 1.5 Flash</h4></div><div class="check-icon">âœ“</div></div>
                                     
                                     <div class="model-group-title">ChatGPT</div>
-                                    <div class="skill-item model-item" data-model="GPT-4o"><div class="skill-info"><h4>GPT-4o</h4></div><div class="check-icon">✓</div></div>
-                                    <div class="skill-item model-item" data-model="GPT-4 Turbo"><div class="skill-info"><h4>GPT-4 Turbo</h4></div><div class="check-icon">✓</div></div>
+                                    <div class="skill-item model-item" data-model="GPT-4o"><div class="skill-info"><h4>GPT-4o</h4></div><div class="check-icon">âœ“</div></div>
+                                    <div class="skill-item model-item" data-model="GPT-4 Turbo"><div class="skill-info"><h4>GPT-4 Turbo</h4></div><div class="check-icon">âœ“</div></div>
                                     
                                     <div class="model-group-title">DeepSeek</div>
-                                    <div class="skill-item model-item" data-model="DeepSeek Coder V2"><div class="skill-info"><h4>DeepSeek Coder V2</h4></div><div class="check-icon">✓</div></div>
-                                    <div class="skill-item model-item" data-model="DeepSeek Chat"><div class="skill-info"><h4>DeepSeek Chat</h4></div><div class="check-icon">✓</div></div>
+                                    <div class="skill-item model-item" data-model="DeepSeek Coder V2"><div class="skill-info"><h4>DeepSeek Coder V2</h4></div><div class="check-icon">âœ“</div></div>
+                                    <div class="skill-item model-item" data-model="DeepSeek Chat"><div class="skill-info"><h4>DeepSeek Chat</h4></div><div class="check-icon">âœ“</div></div>
                                     
                                     <div class="model-group-title">Claude</div>
-                                    <div class="skill-item model-item" data-model="Claude 3.5 Sonnet"><div class="skill-info"><h4>Claude 3.5 Sonnet</h4></div><div class="check-icon">✓</div></div>
-                                    <div class="skill-item model-item" data-model="Claude 3 Opus"><div class="skill-info"><h4>Claude 3 Opus</h4></div><div class="check-icon">✓</div></div>
+                                    <div class="skill-item model-item" data-model="Claude 3.5 Sonnet"><div class="skill-info"><h4>Claude 3.5 Sonnet</h4></div><div class="check-icon">âœ“</div></div>
+                                    <div class="skill-item model-item" data-model="Claude 3 Opus"><div class="skill-info"><h4>Claude 3 Opus</h4></div><div class="check-icon">âœ“</div></div>
                                 </div>
                             </div>
                             
@@ -124,27 +125,27 @@
                                     <div class="dropdown-title">PILIH SKILL</div>
                                     
                                     <div class="skill-item active" data-skill="chat">
-                                        <div class="skill-icon">💬</div>
+                                        <div class="skill-icon">ðŸ’¬</div>
                                         <div class="skill-info">
                                             <h4>Chat Biasa</h4><p>Chat biasa.</p>
                                         </div>
-                                        <div class="check-icon">✓</div>
+                                        <div class="check-icon">âœ“</div>
                                     </div>
                                     
                                     <div class="skill-item" data-skill="ceklis">
-                                        <div class="skill-icon">☑️</div>
+                                        <div class="skill-icon">â˜‘ï¸</div>
                                         <div class="skill-info">
                                             <h4>Pembuat Ceklis</h4><p>Ubah tujuan jadi ceklis.</p>
                                         </div>
-                                        <div class="check-icon">✓</div>
+                                        <div class="check-icon">âœ“</div>
                                     </div>
                                     
                                     <div class="skill-item" data-skill="generator">
-                                        <div class="skill-icon">🚀</div>
+                                        <div class="skill-icon">ðŸš€</div>
                                         <div class="skill-info">
                                             <h4>Generator EDS</h4><p>Project lengkap EDS.</p>
                                         </div>
-                                        <div class="check-icon">✓</div>
+                                        <div class="check-icon">âœ“</div>
                                     </div>
                                 </div>
                             </div>

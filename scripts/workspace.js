@@ -93,13 +93,13 @@ document.addEventListener('DOMContentLoaded', () => {
     async function loadSubscription() {
         const user = auth.currentUser;
         if (!user) {
-            window.location.href = `login.html?redirect=${encodeURIComponent('workspace.html')}`;
+            window.location.href = `/login.html?redirect=${encodeURIComponent('/workspace.html')}`;
             return;
         }
         
         try {
             const token = await user.getIdToken();
-            const response = await fetch('/.netlify/functions/check-subscription', {
+            const response = await fetch(`${window.APP_CONFIG.FUNCTIONS_BASE}/check-subscription`, {
                 method: 'POST',
                 headers: {
                     'Authorization': `Bearer ${token}`
@@ -124,7 +124,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 if (isExpired) {
                     alert("Paket Anda sudah expired. Silakan perpanjang paket di halaman Harga.");
-                    window.location.href = 'harga.html';
+                    window.location.href = '/harga.html';
                 }
             }
         } catch (e) {
@@ -137,7 +137,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (user) {
             loadSubscription();
         } else {
-            window.location.href = `login.html?redirect=${encodeURIComponent('workspace.html')}`;
+            window.location.href = `/login.html?redirect=${encodeURIComponent('/workspace.html')}`;
         }
     });
 
@@ -185,7 +185,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Call Netlify Function for actual generation (Mocked here, but calls the real backend)
         try {
             const token = await auth.currentUser.getIdToken();
-            const response = await fetch('/.netlify/functions/generate-ai', {
+            const response = await fetch(`${window.APP_CONFIG.FUNCTIONS_BASE}/generate-ai`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

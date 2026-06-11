@@ -7,12 +7,13 @@ import { getFirestore } from "https://www.gstatic.com/firebasejs/10.8.1/firebase
 // TODO: Ganti placeholder ini dengan konfigurasi Firebase Anda!
 // Anda bisa mendapatkannya di Firebase Console -> Project Settings -> General -> Web App
 
-// CATATAN PENTING UNTUK LOCALHOST:
-// Agar login berjalan di localhost, buka Firebase Console:
+// Jika domain website berubah, tambahkan domain baru di Firebase Console:
 // Authentication > Settings > Authorized domains
-// Tambahkan:
+// Tambahkan tanpa http/https:
+// eds-ai.netlify.app
 // localhost
 // 127.0.0.1
+// zyhr9h3k1ddfhjz9p2uxzu5s.103.247.11.249.sslip.io
 
 const firebaseConfig = {
   apiKey: "AIzaSy_GANTI_DENGAN_API_KEY_ANDA",

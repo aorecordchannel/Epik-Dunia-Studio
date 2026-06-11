@@ -23,16 +23,16 @@ export function checkAuthAndRedirect() {
         if (!user && !isLoginPage) {
             // Not logged in, redirect to login
             const currentUrl = encodeURIComponent(window.location.pathname + window.location.search);
-            window.location.href = `login.html?redirect=${currentUrl}`;
+            window.location.href = `/login.html?redirect=${currentUrl}`;
         } else if (user && isLoginPage) {
             // Logged in but on login page, redirect to target or workspace
-            const redirectTo = getSafeRedirect("produk.html");
+            const redirectTo = getSafeRedirect("/produk.html");
             window.location.href = redirectTo;
         }
     });
 }
 
-function getSafeRedirect(defaultRoute = "produk.html") {
+function getSafeRedirect(defaultRoute = "/produk.html") {
     const params = new URLSearchParams(window.location.search);
     const redirect = params.get("redirect");
 
@@ -52,7 +52,7 @@ if (auth) {
         const loginBtn = document.getElementById('nav-login-btn');
     if (loginBtn) {
         if (user) {
-            loginBtn.textContent = 'Dashboard / Akun';
+            loginBtn.textContent = 'Akun';
             loginBtn.href = 'produk.html';
             
             // Add logout button if it doesn't exist
@@ -90,7 +90,7 @@ export function openProtectedApp(appRoute) {
 
     onAuthStateChanged(auth, (user) => {
         if (!user) {
-            window.location.href = `login.html?redirect=${encodeURIComponent(appRoute)}`;
+            window.location.href = `/login.html?redirect=${encodeURIComponent(appRoute)}`;
             return;
         }
         window.location.href = appRoute;
@@ -188,7 +188,7 @@ export async function loginWithGoogle() {
 export async function logoutUser() {
     try {
         await signOut(auth);
-        window.location.href = 'login.html';
+        window.location.href = '/login.html';
     } catch (error) {
         console.error("Logout error:", error);
     }

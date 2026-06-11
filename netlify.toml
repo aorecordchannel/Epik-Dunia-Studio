@@ -15,3 +15,13 @@ status = 200
 from = "/Dashboard/"
 to = "/Dashboard/index.html"
 status = 200
+
+[[redirects]]
+from = "/lyricshot"
+to = "/lyricshot.html"
+status = 200
+
+[[redirects]]
+from = "/workspace"
+to = "/workspace.html"
+status = 200
