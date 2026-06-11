@@ -1,12 +1,11 @@
-// scripts/lyricshot.js
+﻿// scripts/lyricshot.js
 
-import { auth } from './firebase-config.js';
 
 let userCredit = 0;
 
 async function checkSubscription() {
     const subPanel = document.getElementById('subscriptionPanel');
-    const user = auth.currentUser;
+    const user = window.auth.currentUser;
     if (!user) return;
 
     try {
@@ -50,7 +49,7 @@ async function checkSubscription() {
 
 document.addEventListener('DOMContentLoaded', () => {
     // Wait for auth to be ready
-    auth.onAuthStateChanged((user) => {
+    window.auth.onAuthStateChanged((user) => {
         if (user) {
             checkSubscription();
         }
@@ -80,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
         resultCanvas.innerHTML = '<div style="color: var(--accent-blue); text-align: center; margin-top: 5rem;">Menganalisis lirik dan menyusun storyboard...<br><small style="color:var(--text-secondary)">Ini mungkin memakan waktu beberapa detik.</small></div>';
 
         try {
-            const token = await auth.currentUser.getIdToken();
+            const token = await window.auth.currentUser.getIdToken();
             const inputData = { lyric, genre, mood, mode };
             
             const response = await fetch(`${window.APP_CONFIG.FUNCTIONS_BASE}/generate-ai`, {
@@ -114,3 +113,4 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+

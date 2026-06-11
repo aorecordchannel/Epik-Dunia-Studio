@@ -1,5 +1,4 @@
-// workspace.js
-import { auth } from './firebase-config.js';
+﻿// workspace.js
 
 let currentCredit = 0;
 let userPlan = '';
@@ -91,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // --- Subscription & Auth Logic ---
     async function loadSubscription() {
-        const user = auth.currentUser;
+        const user = window.auth.currentUser;
         if (!user) {
             window.location.href = `/login.html?redirect=${encodeURIComponent('/workspace.html')}`;
             return;
@@ -133,7 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     // Auth observer to trigger load
-    auth.onAuthStateChanged((user) => {
+    window.auth.onAuthStateChanged((user) => {
         if (user) {
             loadSubscription();
         } else {
@@ -184,7 +183,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         // Call Netlify Function for actual generation (Mocked here, but calls the real backend)
         try {
-            const token = await auth.currentUser.getIdToken();
+            const token = await window.auth.currentUser.getIdToken();
             const response = await fetch(`${window.APP_CONFIG.FUNCTIONS_BASE}/generate-ai`, {
                 method: 'POST',
                 headers: {
@@ -402,3 +401,4 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 });
+

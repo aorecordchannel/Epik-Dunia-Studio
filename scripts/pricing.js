@@ -1,9 +1,8 @@
-// scripts/pricing.js
+﻿// scripts/pricing.js
 
-import { auth } from './firebase-config.js';
 
 export async function selectPlan(planId) {
-    const user = auth.currentUser;
+    const user = window.auth.currentUser;
     
     // Redirect if not logged in
     if (!user) {
@@ -55,3 +54,4 @@ export async function selectPlan(planId) {
 
 // Make globally available for onclick handlers
 window.selectPlan = selectPlan;
+

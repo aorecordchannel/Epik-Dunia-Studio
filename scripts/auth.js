@@ -1,15 +1,5 @@
 // scripts/auth.js
 
-import { auth, db, googleProvider } from './firebase-config.js';
-import { 
-    signInWithEmailAndPassword, 
-    createUserWithEmailAndPassword, 
-    signInWithPopup, 
-    onAuthStateChanged,
-    signOut 
-} from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
-import { doc, setDoc, getDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
-
 // === ROUTE PROTECTION ===
 export function checkAuthAndRedirect() {
     if (window.location.protocol === "file:") {
@@ -17,7 +7,7 @@ export function checkAuthAndRedirect() {
         return;
     }
 
-    onAuthStateChanged(auth, (user) => {
+    window.auth.onAuthStateChanged((user) => {
         const isLoginPage = window.location.pathname.includes('login.html');
         
         if (!user && !isLoginPage) {
@@ -47,8 +37,8 @@ function getSafeRedirect(defaultRoute = "/produk.html") {
 }
 
 // === GLOBAL UI OBSERVER ===
-if (auth) {
-    onAuthStateChanged(auth, (user) => {
+if (window.auth) {
+    window.auth.onAuthStateChanged((user) => {
         const loginBtn = document.getElementById('nav-login-btn');
     if (loginBtn) {
         if (user) {
@@ -88,7 +78,7 @@ export function openProtectedApp(appRoute) {
         return;
     }
 
-    onAuthStateChanged(auth, (user) => {
+    window.auth.onAuthStateChanged((user) => {
         if (!user) {
             window.location.href = `/login.html?redirect=${encodeURIComponent(appRoute)}`;
             return;
@@ -104,13 +94,13 @@ window.openProtectedApp = openProtectedApp;
 
 // Initialize new user in Firestore
 async function createNewUserDoc(user) {
-    const userRef = doc(db, 'users', user.uid);
-    const userSnap = await getDoc(userRef);
+    const userRef = window.db.collection('users').doc(user.uid);
+    const userSnap = await userRef.get();
     
     // Only create if it doesn't exist
-    if (!userSnap.exists()) {
-        const now = serverTimestamp();
-        await setDoc(userRef, {
+    if (!userSnap.exists) {
+        const now = firebase.firestore.FieldValue.serverTimestamp();
+        await userRef.set({
             uid: user.uid,
             email: user.email,
             displayName: user.displayName || user.email.split('@')[0],
@@ -124,9 +114,6 @@ async function createNewUserDoc(user) {
             credit: 100,
             usedCredit: 0,
             dailyCredit: 100,
-            lastCreditResetAt: now,
-            subscriptionStartAt: now,
-            subscriptionEndAt: null, // Free doesn't expire
             apiKeyId: null,
             apiKeyStatus: "not_set",
             createdAt: now,
@@ -154,7 +141,7 @@ export async function loginWithEmail(email, password) {
     }
 
     try {
-        const userCredential = await signInWithEmailAndPassword(auth, email, password);
+        const userCredential = await window.auth.signInWithEmailAndPassword(email, password);
         return { success: true, user: userCredential.user };
     } catch (error) {
         return { success: false, error: "Login gagal. Periksa alamat email dan kata sandi Anda." };
@@ -163,7 +150,7 @@ export async function loginWithEmail(email, password) {
 
 export async function registerWithEmail(email, password) {
     try {
-        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+        const userCredential = await window.auth.createUserWithEmailAndPassword(email, password);
         await createNewUserDoc(userCredential.user);
         return { success: true, user: userCredential.user };
     } catch (error) {
@@ -173,7 +160,7 @@ export async function registerWithEmail(email, password) {
 
 export async function loginWithGoogle() {
     try {
-        const userCredential = await signInWithPopup(auth, googleProvider);
+        const userCredential = await window.auth.signInWithPopup(window.googleProvider);
         await createNewUserDoc(userCredential.user);
         return { success: true, user: userCredential.user };
     } catch (error) {
@@ -187,7 +174,7 @@ export async function loginWithGoogle() {
 
 export async function logoutUser() {
     try {
-        await signOut(auth);
+        await window.auth.signOut();
         window.location.href = '/login.html';
     } catch (error) {
         console.error("Logout error:", error);
