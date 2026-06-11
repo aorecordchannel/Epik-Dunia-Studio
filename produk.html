@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produk - Epik Dunia Studio</title>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <!-- Logo -->
+            <a href="index.html" class="logo">
+                <span class="logo-text">Epik Dunia <span class="accent">Studio</span></span>
+            </a>
+
+            <!-- Center Navigation -->
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Beranda</a></li>
+                <li><a href="produk.html" class="nav-link active">Produk</a></li>
+                <li><a href="creator.html" class="nav-link">Creator</a></li>
+                <li><a href="harga.html" class="nav-link">Harga</a></li>
+                <li><a href="news.html" class="nav-link">News</a></li>
+                <li><a href="komunitas.html" class="nav-link">Komunitas</a></li>
+            </ul>
+
+            <!-- Right Actions -->
+            <div class="nav-actions">
+                <div class="lang-selector">
+                    <button class="lang-btn">ID <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+                </div>
+                <a href="login.html" class="btn-login" id="nav-login-btn">Login</a>
+                <a href="#" onclick="openProtectedApp('lyricshot.html'); return false;" class="btn-primary">Coba Gratis</a>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header Padding -->
+    <div style="padding-top: 100px;"></div>
+
+    <!-- Produk Section -->
+    <section id="produk" class="section">
+        <div class="section-container">
+            <h2 class="section-title">Produk <span class="accent-text">Unggulan</span></h2>
+            <p class="section-desc">Temukan berbagai alat canggih yang dirancang khusus untuk memenuhi kebutuhan kreativitas Anda tanpa batas.</p>
+            <div class="cards-grid">
+                
+                <!-- App 1: LyricShot AI -->
+                <div class="card glass app-card">
+                    <div class="app-badge badge-tersedia" style="background: rgba(16, 185, 129, 0.2); color: #10b981; padding: 0.3rem 0.6rem; border-radius: 4px; font-size: 0.75rem; display: inline-block; margin-bottom: 1rem;">Tersedia</div>
+                    <h3>LyricShot AI</h3>
+                    <div class="app-subtitle" style="font-size: 0.8rem; color: var(--ws-orange); margin-bottom: 0.5rem;">Konsep Storyboard Musik Video</div>
+                    <p style="font-size: 0.9rem; margin-bottom: 1.5rem;">Ubah lirik menjadi konsep visual cinematic.</p>
+                    <a href="#" onclick="openProtectedApp('lyricshot.html'); return false;" class="btn-primary w-100" style="display: block; text-align: center;">Buka App LyricShot AI</a>
+                </div>
+
+                <!-- App 2: CineBoard Pro -->
+                <div class="card glass app-card">
+                    <div class="app-badge" style="background: rgba(156, 163, 175, 0.2); color: #9ca3af; padding: 0.3rem 0.6rem; border-radius: 4px; font-size: 0.75rem; display: inline-block; margin-bottom: 1rem;">Segera Hadir</div>
+                    <h3>CineBoard Pro</h3>
+                    <div class="app-subtitle" style="font-size: 0.8rem; color: var(--ws-orange); margin-bottom: 0.5rem;">Dari Ide Video Menjadi Storyboard Cinematic</div>
+                    <p style="font-size: 0.9rem; margin-bottom: 1.5rem;">Bangun storyboard sinematik dari ide, konsep, atau naskah video. CineBoard Pro membantu menyusun adegan, komposisi kamera, shot type, pencahayaan, dan alur visual agar konsep video terlihat lebih siap produksi.</p>
+                    <button disabled class="btn-secondary w-100" style="opacity: 0.5; cursor: not-allowed;" title="App ini segera hadir.">Segera Hadir</button>
+                </div>
+
+                <!-- App 3: StoryFrame AI -->
+                <div class="card glass app-card">
+                    <div class="app-badge" style="background: rgba(156, 163, 175, 0.2); color: #9ca3af; padding: 0.3rem 0.6rem; border-radius: 4px; font-size: 0.75rem; display: inline-block; margin-bottom: 1rem;">Segera Hadir</div>
+                    <h3>StoryFrame AI</h3>
+                    <div class="app-subtitle" style="font-size: 0.8rem; color: var(--ws-orange); margin-bottom: 0.5rem;">Dari Cerita Menjadi Shot List Siap Produksi</div>
+                    <p style="font-size: 0.9rem; margin-bottom: 1.5rem;">Ubah cerita pendek, skenario, atau narasi menjadi shot list yang jelas dan terstruktur. Membantu menentukan urutan adegan, framing kamera, ekspresi karakter, transisi, dan kebutuhan visual setiap scene.</p>
+                    <button disabled class="btn-secondary w-100" style="opacity: 0.5; cursor: not-allowed;" title="App ini segera hadir.">Segera Hadir</button>
+                </div>
+
+                <!-- App 4: VisualPrompt Studio -->
+                <div class="card glass app-card">
+                    <div class="app-badge" style="background: rgba(156, 163, 175, 0.2); color: #9ca3af; padding: 0.3rem 0.6rem; border-radius: 4px; font-size: 0.75rem; display: inline-block; margin-bottom: 1rem;">Segera Hadir</div>
+                    <h3>VisualPrompt Studio</h3>
+                    <div class="app-subtitle" style="font-size: 0.8rem; color: var(--ws-orange); margin-bottom: 0.5rem;">Dari Ide Mentah Menjadi Prompt Gambar dan Video</div>
+                    <p style="font-size: 0.9rem; margin-bottom: 1.5rem;">Buat prompt gambar dan prompt video yang lebih detail, cinematic, dan mudah dipakai di AI visual generator. Membantu menyusun style, lighting, camera lens, mood, action, dan negative prompt.</p>
+                    <button disabled class="btn-secondary w-100" style="opacity: 0.5; cursor: not-allowed;" title="App ini segera hadir.">Segera Hadir</button>
+                </div>
+
+                <!-- App 5: MV Director Engine -->
+                <div class="card glass app-card">
+                    <div class="app-badge" style="background: rgba(156, 163, 175, 0.2); color: #9ca3af; padding: 0.3rem 0.6rem; border-radius: 4px; font-size: 0.75rem; display: inline-block; margin-bottom: 1rem;">Segera Hadir</div>
+                    <h3>MV Director Engine</h3>
+                    <div class="app-subtitle" style="font-size: 0.8rem; color: var(--ws-orange); margin-bottom: 0.5rem;">Konsep Lagu Menjadi Arahan Music Video Lengkap</div>
+                    <p style="font-size: 0.9rem; margin-bottom: 1.5rem;">Rancang konsep music video seperti seorang director. Membantu menyusun tema visual, sequence adegan, shot list, camera movement, performance scene, storyline, dan continuity untuk MV AI.</p>
+                    <button disabled class="btn-secondary w-100" style="opacity: 0.5; cursor: not-allowed;" title="App ini segera hadir.">Segera Hadir</button>
+                </div>
+
+                <!-- App 6: VoiceCraft Studio -->
+                <div class="card glass app-card">
+                    <div class="app-badge" style="background: rgba(156, 163, 175, 0.2); color: #9ca3af; padding: 0.3rem 0.6rem; border-radius: 4px; font-size: 0.75rem; display: inline-block; margin-bottom: 1rem;">Segera Hadir</div>
+                    <h3>VoiceCraft Studio</h3>
+                    <div class="app-subtitle" style="font-size: 0.8rem; color: var(--ws-orange); margin-bottom: 0.5rem;">Dari Teks Menjadi Naskah Voice Over Siap Pakai</div>
+                    <p style="font-size: 0.9rem; margin-bottom: 1.5rem;">Siapkan naskah voice over, narasi, hook konten, dan arahan gaya bicara. Membantu membuat teks terdengar lebih natural, emosional, dan siap diproses ke text-to-speech.</p>
+                    <button disabled class="btn-secondary w-100" style="opacity: 0.5; cursor: not-allowed;" title="App ini segera hadir.">Segera Hadir</button>
+                </div>
+
+                <!-- App 7: Mastering Musik AI -->
+                <div class="card glass app-card">
+                    <div class="app-badge" style="background: rgba(156, 163, 175, 0.2); color: #9ca3af; padding: 0.3rem 0.6rem; border-radius: 4px; font-size: 0.75rem; display: inline-block; margin-bottom: 1rem;">Segera Hadir</div>
+                    <h3>Mastering Musik AI</h3>
+                    <div class="app-subtitle" style="font-size: 0.8rem; color: var(--ws-orange); margin-bottom: 0.5rem;">Mastering Musik Otomatis</div>
+                    <p style="font-size: 0.9rem; margin-bottom: 1.5rem;">Bantu kreator musik membuat hasil audio terdengar lebih rapi, seimbang, keras, jernih, dan siap upload ke platform musik. Dirancang untuk mastering lagu secara cepat dengan panduan AI.</p>
+                    <button disabled class="btn-secondary w-100" style="opacity: 0.5; cursor: not-allowed;" title="App ini segera hadir.">Segera Hadir</button>
+                </div>
+
+                <!-- App 8: EDS Workspace -->
+                <div class="card glass app-card">
+                    <div class="app-badge badge-tersedia" style="background: rgba(16, 185, 129, 0.2); color: #10b981; padding: 0.3rem 0.6rem; border-radius: 4px; font-size: 0.75rem; display: inline-block; margin-bottom: 1rem;">Tersedia</div>
+                    <h3>EDS Workspace</h3>
+                    <div class="app-subtitle" style="font-size: 0.8rem; color: var(--ws-orange); margin-bottom: 0.5rem;">AI APP PLANNER</div>
+                    <p style="font-size: 0.9rem; margin-bottom: 1.5rem;">Ubah ide aplikasi menjadi rencana produk siap pakai.</p>
+                    <a href="#" onclick="openProtectedApp('workspace.html'); return false;" class="btn-primary w-100" style="display: block; text-align: center;">Buka App EDS Workspace</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- New Global Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-brand">
+                <div class="footer-logo" style="font-size: 1.8rem; font-weight: 800;">Epik Dunia <span style="color: var(--accent-blue);">Studio</span></div>
+                <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6;">AI creative workflow untuk kreator visioner.</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-col">
+                    <h4>Produk</h4>
+                    <a href="#">LyricShot AI</a>
+                    <a href="#">CineBoard Pro</a>
+                    <a href="#">StoryFrame AI</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Bantuan</h4>
+                    <a href="creator.html">Creator</a>
+                    <a href="komunitas.html">Komunitas</a>
+                    <a href="#">Bantuan</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p style="color: var(--text-secondary); font-size: 0.85rem;">&copy; 2026 Epik Dunia Studio. Hak Cipta Dilindungi.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script type="module" src="scripts/auth.js"></script>
+    <script src="scripts/main.js"></script>
+</body>
+</html>

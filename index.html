@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Epik Dunia Studio - Kreativitas Tanpa Batas</title>
+    <meta name="description" content="Platform modern untuk produk, kreator, berita, dan komunitas Epik Dunia Studio.">
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <!-- Logo -->
+            <a href="#" class="logo">
+                <span class="logo-text">Epik Dunia <span class="accent">Studio</span></span>
+            </a>
+
+            <!-- Center Navigation -->
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link active">Beranda</a></li>
+                <li><a href="produk.html" class="nav-link">Produk</a></li>
+                <li><a href="creator.html" class="nav-link">Creator</a></li>
+                <li><a href="harga.html" class="nav-link">Harga</a></li>
+                <li><a href="news.html" class="nav-link">News</a></li>
+                <li><a href="komunitas.html" class="nav-link">Komunitas</a></li>
+            </ul>
+
+            <!-- Right Actions -->
+            <div class="nav-actions">
+                <div class="lang-selector">
+                    <button class="lang-btn">ID <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+                </div>
+                <a href="login.html" class="btn-login" id="nav-login-btn">Login</a>
+                <a href="#" onclick="openProtectedApp('lyricshot.html'); return false;" class="btn-primary">Coba Gratis</a>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="beranda" class="hero">
+        <div class="hero-bg">
+            <div class="bg-overlay" style="background: linear-gradient(to bottom, rgba(10,10,15,0.7) 0%, rgba(10,10,15,1) 100%);"></div>
+        </div>
+        <div class="hero-center" style="display: flex; flex-direction: column; align-items: center; text-align: center; max-width: 1000px; margin: 0 auto; gap: 3rem; z-index: 1; padding: 0 2rem;">
+            <div class="hero-text">
+                <h1 class="hero-title" style="font-size: 3.5rem; line-height: 1.1;">Ubah Lirik dan Ide Video Menjadi <span class="accent-text">Storyboard MV</span> Siap Produksi</h1>
+                <p class="hero-subtitle" style="font-size: 1.1rem; margin-top: 1.5rem; max-width: 800px; margin-left: auto; margin-right: auto;">Epik Dunia Studio membantu kreator membuat shot list, storyboard, prompt gambar, prompt video, dan panduan visual untuk produksi music video AI.</p>
+                <div class="hero-cta-group" style="justify-content: center; margin-bottom: 1.5rem;">
+                    <a href="#mulai" class="btn-primary btn-large">Mulai Gratis</a>
+                    <a href="#pelajari" class="btn-secondary btn-large">Pelajari Lebih Lanjut</a>
+                </div>
+                <p class="hero-footer-text" style="margin-top: 0;">Cocok untuk kreator musik AI, Suno, Udio, YouTube Music, TikTok, dan pembuat video AI.</p>
+            </div>
+            <div class="hero-visual" style="width: 100%; max-width: 1000px;">
+                <div class="split-image" style="background: linear-gradient(135deg, rgba(0, 240, 255, 0.1), rgba(138, 43, 226, 0.1)); border: 1px solid rgba(0, 240, 255, 0.2); border-radius: 20px; overflow: hidden; box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);">
+                    <img src="assets/hero-visual.jpg" alt="Visual Hero" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hasil yang Bisa Kamu Buat -->
+    <section class="section">
+        <div class="section-container split-layout">
+            <div class="split-left split-content">
+                <h2>Hasil yang Bisa Kamu Buat dengan <span class="accent-text">Epik Dunia Studio</span></h2>
+                <p>Setiap fitur dibuat untuk membantu kreator mengubah ide mentah menjadi arahan visual yang rapi, siap dipakai untuk produksi AI video, storyboard, dan music video.</p>
+            </div>
+            <div class="split-right">
+                <div class="split-image">
+                    <img src="assets/output-visual.jpg" alt="Ilustrasi Output Visual" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dari Lirik Lagu Menjadi Storyboard MV -->
+    <section class="section alt-bg">
+        <div class="section-container split-layout">
+            <div class="split-left">
+                <div class="split-image">
+                    <img src="assets/lirik-visual.jpg" alt="Ilustrasi Lirik ke Visual" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+            </div>
+            <div class="split-right split-content">
+                <h2>Dari Lirik Lagu Menjadi <span class="accent-text">Storyboard MV</span></h2>
+                <p>Masukkan lirik lagu, lalu sistem membantu menyusun konsep video musik lengkap dengan mood, scene, angle kamera, emosi, dan arah visual.</p>
+                
+                <div class="code-output">
+                    <div class="code-title">Contoh output:</div>
+                    <strong>Mood:</strong> melankolis, cinematic, hujan malam<br>
+                    <strong>Scene:</strong> penyanyi berjalan sendiri di kota basah<br>
+                    <strong>Camera:</strong> slow dolly, close-up emotion, wide city shot
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cerita Menjadi Shot List -->
+    <section class="section">
+        <div class="section-container split-layout">
+            <div class="split-left split-content">
+                <h2>Cerita Menjadi <span class="accent-text">Shot List</span></h2>
+                <p>Ubah cerita pendek, naskah, atau ide adegan menjadi daftar shot yang jelas untuk kebutuhan produksi video.</p>
+                
+                <div class="code-output">
+                    <div class="code-title">Contoh output:</div>
+                    <strong>Shot 1:</strong> establishing shot lokasi<br>
+                    <strong>Shot 2:</strong> medium shot karakter utama<br>
+                    <strong>Shot 3:</strong> close-up ekspresi
+                </div>
+            </div>
+            <div class="split-right">
+                <div class="split-image">
+                    <img src="assets/naskah-shotlist.jpg" alt="Ilustrasi Naskah ke Shot List" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Apps yang Akan Tersedia -->
+    <section class="section alt-bg">
+        <div class="section-container">
+            <h2 class="section-title" style="margin-bottom: 3rem;">Apps yang <span class="accent-text">Akan Tersedia</span></h2>
+            <div class="cards-grid">
+                
+                <!-- App 1 -->
+                <div class="card glass app-card">
+                    <div class="app-badge badge-tersedia">Tersedia</div>
+                    <h3>LyricShot AI</h3>
+                    <div class="app-subtitle">Konsep Storyboard Musik Video</div>
+                    <p>Ubah lirik menjadi konsep visual cinematic.</p>
+                    <a href="#" class="btn-link">Lihat Detail &rarr;</a>
+                </div>
+
+                <!-- App 2 -->
+                <div class="card glass app-card">
+                    <div class="app-badge badge-segera">Segera Hadir</div>
+                    <h3>CineBoard Pro</h3>
+                    <div class="app-subtitle">Dari Ide Video Menjadi Storyboard Cinematic</div>
+                    <p>Bangun storyboard sinematik dari ide, konsep, atau naskah video. CineBoard Pro membantu menyusun adegan, komposisi kamera, shot type, pencahayaan, dan alur visual agar konsep video terlihat lebih siap produksi.</p>
+                    <a href="#" class="btn-link">Lihat Detail &rarr;</a>
+                </div>
+
+                <!-- App 3 -->
+                <div class="card glass app-card">
+                    <div class="app-badge badge-segera">StoryFrame AI</div>
+                    <h3>StoryFrame AI</h3>
+                    <div class="app-subtitle">Dari Cerita Menjadi Shot List Siap Produksi</div>
+                    <p>Ubah cerita pendek, skenario, atau narasi menjadi shot list yang jelas dan terstruktur. StoryFrame AI membantu menentukan urutan adegan, framing kamera, ekspresi karakter, transisi, dan kebutuhan visual setiap scene.</p>
+                    <a href="#" class="btn-link">Lihat Detail &rarr;</a>
+                </div>
+
+                <!-- App 4 -->
+                <div class="card glass app-card">
+                    <div class="app-badge badge-segera">Segera Hadir</div>
+                    <h3>VisualPrompt Studio</h3>
+                    <div class="app-subtitle">Dari Ide Mentah Menjadi Prompt Gambar dan Video</div>
+                    <p>Buat prompt gambar dan prompt video yang lebih detail, cinematic, dan mudah dipakai di AI visual generator. VisualPrompt Studio membantu menyusun style, lighting, camera lens, mood, action, dan negative prompt agar hasil visual lebih konsisten.</p>
+                    <a href="#" class="btn-link">Lihat Detail &rarr;</a>
+                </div>
+
+                <!-- App 5 -->
+                <div class="card glass app-card">
+                    <div class="app-badge badge-segera">Segera Hadir</div>
+                    <h3>MV Director Engine</h3>
+                    <div class="app-subtitle">Dari Konsep Lagu Menjadi Arahan Music Video Lengkap</div>
+                    <p>Rancang konsep music video seperti seorang director. MV Director Engine membantu menyusun tema visual, sequence adegan, shot list, camera movement, performance scene, storyline, dan continuity untuk produksi MV AI yang lebih matang.</p>
+                    <a href="#" class="btn-link">Lihat Detail &rarr;</a>
+                </div>
+
+                <!-- App 6 -->
+                <div class="card glass app-card">
+                    <div class="app-badge badge-segera">Segera Hadir</div>
+                    <h3>VoiceCraft Studio</h3>
+                    <div class="app-subtitle">Dari Teks Menjadi Naskah Voice Over Siap Pakai</div>
+                    <p>Siapkan naskah voice over, narasi, hook konten, dan arahan gaya bicara untuk kebutuhan video, storytelling, promosi, atau konten pendek. VoiceCraft Studio membantu membuat teks terdengar lebih natural, emosional, dan siap diproses ke text-to-speech.</p>
+                    <a href="#" class="btn-link">Lihat Detail &rarr;</a>
+                </div>
+
+                <!-- App 7 -->
+                <div class="card glass app-card">
+                    <div class="app-badge badge-segera">Segera Hadir</div>
+                    <h3>Mastering Musik AI</h3>
+                    <div class="app-subtitle">Mastering Musik Otomatis</div>
+                    <p>Bantu kreator musik membuat hasil audio terdengar lebih rapi, seimbang, keras, jernih, dan siap upload ke YouTube, Spotify, TikTok, maupun platform musik lainnya. App ini dirancang untuk membantu proses mastering lagu secara cepat dengan panduan AI.</p>
+                    <a href="#" class="btn-link">Lihat Detail &rarr;</a>
+                </div>
+
+                <!-- App 8 -->
+                <div class="card glass app-card">
+                    <div class="app-badge badge-tersedia">Tersedia</div>
+                    <h3>EDS Workspace</h3>
+                    <div class="app-subtitle">AI APP PLANNER</div>
+                    <p>Ubah ide aplikasi menjadi rencana produk siap Pakai.</p>
+                    <a href="#" onclick="openProtectedApp('workspace.html'); return false;" class="btn-link">Buka App EDS Workspace</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- New Global Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-brand">
+                <div class="footer-logo" style="font-size: 1.8rem; font-weight: 800;">Epik Dunia <span style="color: var(--accent-blue);">Studio</span></div>
+                <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6;">AI creative workflow untuk kreator visioner.</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-col">
+                    <h4>Produk</h4>
+                    <a href="#">LyricShot AI</a>
+                    <a href="#">CineBoard Pro</a>
+                    <a href="#">StoryFrame AI</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Bantuan</h4>
+                    <a href="creator.html">Creator</a>
+                    <a href="komunitas.html">Komunitas</a>
+                    <a href="#">Bantuan</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p style="color: var(--text-secondary); font-size: 0.85rem;">&copy; 2026 Epik Dunia Studio. Hak Cipta Dilindungi.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script type="module" src="scripts/auth.js"></script>
+    <script src="scripts/main.js"></script>
+</body>
+</html>

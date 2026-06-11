@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Komunitas - Epik Dunia Studio</title>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <!-- Logo -->
+            <a href="index.html" class="logo">
+                <span class="logo-text">Epik Dunia <span class="accent">Studio</span></span>
+            </a>
+
+            <!-- Center Navigation -->
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Beranda</a></li>
+                <li><a href="produk.html" class="nav-link">Produk</a></li>
+                <li><a href="creator.html" class="nav-link">Creator</a></li>
+                <li><a href="harga.html" class="nav-link">Harga</a></li>
+                <li><a href="news.html" class="nav-link">News</a></li>
+                <li><a href="komunitas.html" class="nav-link active">Komunitas</a></li>
+            </ul>
+
+            <!-- Right Actions -->
+            <div class="nav-actions">
+                <div class="lang-selector">
+                    <button class="lang-btn">ID <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+                </div>
+                <a href="login.html" class="btn-login" id="nav-login-btn">Login</a>
+                <a href="#" onclick="openProtectedApp('lyricshot.html'); return false;" class="btn-primary">Coba Gratis</a>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header Padding -->
+    <div style="padding-top: 100px;"></div>
+
+    <!-- Komunitas Section -->
+    <section id="komunitas" class="section alt-bg">
+        <div class="section-container">
+            <h2 class="section-title">Bergabung dengan <span class="accent-text">Komunitas</span></h2>
+            <p class="section-desc">Jadilah bagian dari ekosistem kreator yang saling mendukung, berbagi ilmu, dan berkolaborasi dalam proyek-proyek luar biasa.</p>
+            <div class="cards-grid">
+                <div class="card glass" style="text-align: center;">
+                    <div class="card-icon">💬</div>
+                    <h3>Forum Diskusi</h3>
+                    <p>Tanyakan solusi, bagikan karya, dan diskusikan tren terbaru bersama ribuan kreator lainnya.</p>
+                    <a href="#" class="btn-secondary" style="margin-top: 1.5rem;">Masuk Forum</a>
+                </div>
+                <div class="card glass" style="text-align: center;">
+                    <div class="card-icon">🤝</div>
+                    <h3>Kolaborasi Proyek</h3>
+                    <p>Cari partner dengan keahlian yang saling melengkapi untuk membangun proyek ambisius bersama-sama.</p>
+                    <a href="#" class="btn-secondary" style="margin-top: 1.5rem;">Cari Partner</a>
+                </div>
+                <div class="card glass" style="text-align: center;">
+                    <div class="card-icon">🎓</div>
+                    <h3>Event & Workshop</h3>
+                    <p>Ikuti sesi pelatihan langsung dari para ahli di industri kreatif setiap minggunya.</p>
+                    <a href="#" class="btn-secondary" style="margin-top: 1.5rem;">Lihat Jadwal</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- New Global Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-brand">
+                <div class="footer-logo" style="font-size: 1.8rem; font-weight: 800;">Epik Dunia <span style="color: var(--accent-blue);">Studio</span></div>
+                <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6;">AI creative workflow untuk kreator visioner.</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-col">
+                    <h4>Produk</h4>
+                    <a href="#">LyricShot AI</a>
+                    <a href="#">CineBoard Pro</a>
+                    <a href="#">StoryFrame AI</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Bantuan</h4>
+                    <a href="creator.html">Creator</a>
+                    <a href="komunitas.html">Komunitas</a>
+                    <a href="#">Bantuan</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p style="color: var(--text-secondary); font-size: 0.85rem;">&copy; 2026 Epik Dunia Studio. Hak Cipta Dilindungi.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script type="module" src="scripts/auth.js"></script>
+    <script src="scripts/main.js"></script>
+</body>
+</html>

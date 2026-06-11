@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EDS Workspace - Epik Dunia Studio</title>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Base CSS -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- Workspace CSS -->
+    <link rel="stylesheet" href="styles/workspace.css">
+</head>
+<body>
+    <div class="workspace-layout">
+        
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="index.html" class="logo">
+                    <span class="logo-text">Epik Dunia <span class="ws-accent">Workspace</span></span>
+                </a>
+            </div>
+            
+            <!-- Subscription Info -->
+            <div id="subscription-info" style="padding: 0.8rem; background: rgba(255,255,255,0.03); border-radius: 8px; margin-bottom: 1rem; border: 1px solid var(--ws-border); font-size: 0.8rem; color: var(--text-secondary);">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                    <span>Paket:</span>
+                    <strong id="ui-plan-name" style="color: var(--ws-orange);">Memuat...</strong>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                    <span>Credit:</span>
+                    <strong id="ui-credit">...</strong>
+                </div>
+                <div style="display: flex; justify-content: space-between;">
+                    <span>Masa Aktif:</span>
+                    <strong id="ui-expired">-</strong>
+                </div>
+            </div>
+            
+            <button class="new-chat-btn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                Chat Baru
+            </button>
+            
+            <div class="chat-history">
+                <div class="history-section">Hari Ini</div>
+                <div class="history-item active">Rencana Aplikasi AI</div>
+                <div class="history-item">Storyboard Musik Video</div>
+                
+                <div class="history-section">Kemarin</div>
+                <div class="history-item">Konsep Landing Page</div>
+            </div>
+            
+            <div class="sidebar-footer">
+                <a href="index.html" class="back-link">&larr; Kembali ke Beranda</a>
+            </div>
+        </aside>
+        
+        <!-- Main Chat Area -->
+        <main class="chat-area">
+            
+            <!-- Header Removed -->
+            
+            <!-- Messages Container -->
+            <div class="messages-container" id="chat-messages">
+                <div class="message ai-message">
+                    <div class="avatar ai-avatar">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 0 1 10 10c0 5.523-4.477 10-10 10S2 17.523 2 12 7.477 2 12 2z"></path><path d="M12 8v4"></path><path d="M12 16h.01"></path></svg>
+                    </div>
+                    <div class="msg-bubble">
+                        <p>Halo! Saya adalah AI Assistant di EDS Workspace. Silakan pilih <strong>Skill</strong> yang ingin digunakan di atas kolom ketik, lalu beri tahu saya apa yang ingin Anda buat hari ini.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Input Area -->
+            <div class="input-area-wrapper">
+                
+                <div class="chat-input-container">
+                    <textarea id="chat-input" placeholder="Tuliskan ide atau instruksi Anda di sini..." rows="1"></textarea>
+                    
+                    <div class="input-toolbar">
+                        <div class="toolbar-left">
+                            
+                            <!-- Model Selector -->
+                            <div class="model-selector-container">
+                                <button id="model-toggle-btn" class="toolbar-btn">
+                                    <div class="toolbar-icon model-icon-sm">🤖</div>
+                                    <span id="active-model-name">Gemini 1.5 Pro</span>
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                                </button>
+                                
+                                <div id="model-dropdown" class="skill-dropdown hidden dropdown-up" style="width: 250px; max-height: 350px; overflow-y: auto;">
+                                    <div class="dropdown-title">PILIH MODEL AI</div>
+                                    <div class="model-group-title">Gemini</div>
+                                    <div class="skill-item active model-item" data-model="Gemini 1.5 Pro"><div class="skill-info"><h4>Gemini 1.5 Pro</h4></div><div class="check-icon">✓</div></div>
+                                    <div class="skill-item model-item" data-model="Gemini 1.5 Flash"><div class="skill-info"><h4>Gemini 1.5 Flash</h4></div><div class="check-icon">✓</div></div>
+                                    
+                                    <div class="model-group-title">ChatGPT</div>
+                                    <div class="skill-item model-item" data-model="GPT-4o"><div class="skill-info"><h4>GPT-4o</h4></div><div class="check-icon">✓</div></div>
+                                    <div class="skill-item model-item" data-model="GPT-4 Turbo"><div class="skill-info"><h4>GPT-4 Turbo</h4></div><div class="check-icon">✓</div></div>
+                                    
+                                    <div class="model-group-title">DeepSeek</div>
+                                    <div class="skill-item model-item" data-model="DeepSeek Coder V2"><div class="skill-info"><h4>DeepSeek Coder V2</h4></div><div class="check-icon">✓</div></div>
+                                    <div class="skill-item model-item" data-model="DeepSeek Chat"><div class="skill-info"><h4>DeepSeek Chat</h4></div><div class="check-icon">✓</div></div>
+                                    
+                                    <div class="model-group-title">Claude</div>
+                                    <div class="skill-item model-item" data-model="Claude 3.5 Sonnet"><div class="skill-info"><h4>Claude 3.5 Sonnet</h4></div><div class="check-icon">✓</div></div>
+                                    <div class="skill-item model-item" data-model="Claude 3 Opus"><div class="skill-info"><h4>Claude 3 Opus</h4></div><div class="check-icon">✓</div></div>
+                                </div>
+                            </div>
+                            
+                            <!-- Skill Selector -->
+                            <div class="skill-selector-container">
+                                <button id="skill-toggle-btn" class="toolbar-btn outline-orange">
+                                    <span id="active-skill-label">Chat Biasa</span>
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                                </button>
+                                
+                                <div id="skill-dropdown" class="skill-dropdown hidden dropdown-up">
+                                    <div class="dropdown-title">PILIH SKILL</div>
+                                    
+                                    <div class="skill-item active" data-skill="chat">
+                                        <div class="skill-icon">💬</div>
+                                        <div class="skill-info">
+                                            <h4>Chat Biasa</h4><p>Chat biasa.</p>
+                                        </div>
+                                        <div class="check-icon">✓</div>
+                                    </div>
+                                    
+                                    <div class="skill-item" data-skill="ceklis">
+                                        <div class="skill-icon">☑️</div>
+                                        <div class="skill-info">
+                                            <h4>Pembuat Ceklis</h4><p>Ubah tujuan jadi ceklis.</p>
+                                        </div>
+                                        <div class="check-icon">✓</div>
+                                    </div>
+                                    
+                                    <div class="skill-item" data-skill="generator">
+                                        <div class="skill-icon">🚀</div>
+                                        <div class="skill-info">
+                                            <h4>Generator EDS</h4><p>Project lengkap EDS.</p>
+                                        </div>
+                                        <div class="check-icon">✓</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="toolbar-right">
+                            <button id="send-btn" class="send-btn">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="input-footer">EDS Workspace dapat membuat kesalahan. Harap periksa hasil penting.</div>
+            </div>
+            
+        </main>
+        
+        <!-- Right Canvas Area -->
+        <aside id="canvas-area" class="canvas-area hidden">
+            <div class="canvas-header">
+                <div class="canvas-tabs" id="canvas-tabs">
+                    <!-- Tabs will be generated dynamically -->
+                </div>
+                <button id="close-canvas" class="close-canvas">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </button>
+            </div>
+            
+            <div id="canvas-content" class="canvas-content">
+                <!-- Content will be generated dynamically -->
+            </div>
+        </aside>
+        
+    </div>
+
+    <!-- Scripts -->
+    <script src="scripts/workspace.js"></script>
+</body>
+</html>

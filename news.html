@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News - Epik Dunia Studio</title>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <!-- Logo -->
+            <a href="index.html" class="logo">
+                <span class="logo-text">Epik Dunia <span class="accent">Studio</span></span>
+            </a>
+
+            <!-- Center Navigation -->
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Beranda</a></li>
+                <li><a href="produk.html" class="nav-link">Produk</a></li>
+                <li><a href="creator.html" class="nav-link">Creator</a></li>
+                <li><a href="harga.html" class="nav-link">Harga</a></li>
+                <li><a href="news.html" class="nav-link active">News</a></li>
+                <li><a href="komunitas.html" class="nav-link">Komunitas</a></li>
+            </ul>
+
+            <!-- Right Actions -->
+            <div class="nav-actions">
+                <div class="lang-selector">
+                    <button class="lang-btn">ID <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+                </div>
+                <a href="login.html" class="btn-login" id="nav-login-btn">Login</a>
+                <a href="#" onclick="openProtectedApp('lyricshot.html'); return false;" class="btn-primary">Coba Gratis</a>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header Padding -->
+    <div style="padding-top: 100px;"></div>
+
+    <!-- News Section -->
+    <section id="news" class="section">
+        <div class="section-container">
+            <h2 class="section-title">Berita <span class="accent-text">Terbaru</span></h2>
+            <p class="section-desc">Dapatkan informasi, pembaruan produk, dan artikel inspiratif dari tim Epik Dunia Studio.</p>
+            <div class="cards-grid">
+                <div class="card glass">
+                    <p style="color: var(--accent-blue); font-size: 0.8rem; margin-bottom: 0.5rem;">11 Juni 2026</p>
+                    <h3>Peluncuran Fitur AI Rendering</h3>
+                    <p>Kami sangat bersemangat mengumumkan fitur AI Rendering terbaru yang dapat mempercepat proses kerja Anda hingga 10x lipat.</p>
+                    <a href="#" style="display: inline-block; margin-top: 1rem; color: var(--accent-blue); font-weight: bold;">Baca Selengkapnya &rarr;</a>
+                </div>
+                <div class="card glass">
+                    <p style="color: var(--accent-blue); font-size: 0.8rem; margin-bottom: 0.5rem;">5 Juni 2026</p>
+                    <h3>Komunitas Mencapai 1 Juta Pengguna!</h3>
+                    <p>Terima kasih atas dukungan Anda. Komunitas Epik Dunia kini telah menjadi salah satu ekosistem kreator terbesar.</p>
+                    <a href="#" style="display: inline-block; margin-top: 1rem; color: var(--accent-blue); font-weight: bold;">Baca Selengkapnya &rarr;</a>
+                </div>
+                <div class="card glass">
+                    <p style="color: var(--accent-blue); font-size: 0.8rem; margin-bottom: 0.5rem;">28 Mei 2026</p>
+                    <h3>Update Keamanan V2.0</h3>
+                    <p>Kami telah memperbarui infrastruktur keamanan untuk memastikan seluruh data proyek Anda aman terlindungi.</p>
+                    <a href="#" style="display: inline-block; margin-top: 1rem; color: var(--accent-blue); font-weight: bold;">Baca Selengkapnya &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- New Global Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-brand">
+                <div class="footer-logo" style="font-size: 1.8rem; font-weight: 800;">Epik Dunia <span style="color: var(--accent-blue);">Studio</span></div>
+                <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6;">AI creative workflow untuk kreator visioner.</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-col">
+                    <h4>Produk</h4>
+                    <a href="#">LyricShot AI</a>
+                    <a href="#">CineBoard Pro</a>
+                    <a href="#">StoryFrame AI</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Bantuan</h4>
+                    <a href="creator.html">Creator</a>
+                    <a href="komunitas.html">Komunitas</a>
+                    <a href="#">Bantuan</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p style="color: var(--text-secondary); font-size: 0.85rem;">&copy; 2026 Epik Dunia Studio. Hak Cipta Dilindungi.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script type="module" src="scripts/auth.js"></script>
+    <script src="scripts/main.js"></script>
+</body>
+</html>

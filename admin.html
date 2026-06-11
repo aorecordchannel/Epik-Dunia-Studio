@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Epik Dunia Studio</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <!-- Base CSS -->
+    <link rel="stylesheet" href="styles/main.css">
+    <style>
+        body { background-color: var(--bg-dark); }
+        .admin-layout { display: flex; height: 100vh; }
+        .admin-sidebar {
+            width: 250px;
+            background: var(--bg-card);
+            border-right: 1px solid var(--border-color);
+            padding: 2rem 1rem;
+        }
+        .admin-nav a {
+            display: block;
+            padding: 0.8rem 1rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            border-radius: 8px;
+            margin-bottom: 0.5rem;
+            transition: all 0.2s;
+        }
+        .admin-nav a:hover, .admin-nav a.active {
+            background: rgba(249, 115, 22, 0.1);
+            color: #f97316;
+        }
+        .admin-content {
+            flex: 1;
+            padding: 2rem 3rem;
+            overflow-y: auto;
+        }
+        .table-wrapper {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            overflow: hidden;
+            margin-top: 2rem;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+        th {
+            background: rgba(255, 255, 255, 0.02);
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+        .btn-action {
+            background: #10b981;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        .btn-action:hover { background: #059669; }
+    </style>
+</head>
+<body>
+    <div class="admin-layout">
+        <aside class="admin-sidebar">
+            <h2 style="font-family: 'Outfit'; color: #f97316; margin-bottom: 2rem; text-align: center;">EDS Admin</h2>
+            <nav class="admin-nav">
+                <a href="#">Dashboard</a>
+                <a href="#">Manajemen User</a>
+                <a href="#">Manajemen Paket</a>
+                <a href="#" class="active">Transaksi Pending</a>
+                <a href="#">API Key User</a>
+                <a href="#">Usage Logs</a>
+            </nav>
+            <button id="logout-btn" style="width: 100%; margin-top: 2rem; background: transparent; border: 1px solid var(--border-color); color: var(--text-secondary); padding: 0.8rem; border-radius: 8px; cursor: pointer;">Logout</button>
+        </aside>
+        
+        <main class="admin-content">
+            <h1 style="font-family: 'Outfit'; margin-bottom: 0.5rem;">Transaksi Pending</h1>
+            <p style="color: var(--text-secondary);">Daftar pesanan paket langganan yang menunggu konfirmasi pembayaran.</p>
+            
+            <h2 style="margin-bottom: 1.5rem; color: var(--accent-blue);">Admin Dashboard</h2>
+
+            <!-- DASHBOARD STATS -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 2rem;">
+                <div class="card glass" style="padding: 1.5rem;">
+                    <h4 style="color: var(--text-secondary); margin-bottom: 0.5rem;">Total User Aktif</h4>
+                    <h2 id="stat-active-users">-</h2>
+                </div>
+                <div class="card glass" style="padding: 1.5rem;">
+                    <h4 style="color: var(--text-secondary); margin-bottom: 0.5rem;">Transaksi Pending</h4>
+                    <h2 id="stat-pending-trx">-</h2>
+                </div>
+                <div class="card glass" style="padding: 1.5rem;">
+                    <h4 style="color: var(--text-secondary); margin-bottom: 0.5rem;">API Key Terpasang</h4>
+                    <h2 id="stat-api-keys">-</h2>
+                </div>
+            </div>
+
+            <h3 style="margin-bottom: 1rem;">Transaksi Pending (Butuh Persetujuan)</h3>
+            <div style="overflow-x: auto; margin-bottom: 2rem;">
+                <table style="width: 100%; border-collapse: collapse; text-align: left;" class="glass">
+                    <thead>
+                        <tr style="border-bottom: 1px solid var(--border-color);">
+                            <th style="padding: 1rem;">Email User</th>
+                            <th style="padding: 1rem;">Paket</th>
+                            <th style="padding: 1rem;">Harga</th>
+                            <th style="padding: 1rem;">Tanggal</th>
+                            <th style="padding: 1rem;">Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody id="pendingTransactionsList">
+                        <tr><td colspan="5" style="padding: 1rem;">Memuat data...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- API KEY USER MANAGEMENT -->
+            <h3 style="margin-bottom: 1rem; color: var(--ws-orange);">Manajemen API Key User</h3>
+            <div class="card glass" style="padding: 1.5rem; margin-bottom: 2rem; max-width: 600px;">
+                <div style="margin-bottom: 1rem;">
+                    <label style="display: block; margin-bottom: 0.5rem; color: var(--text-secondary);">Cari Berdasarkan Email</label>
+                    <div style="display: flex; gap: 0.5rem;">
+                        <input type="email" id="searchUserEmail" class="glass" style="flex: 1; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: 8px; color: var(--text-primary);" placeholder="user@email.com">
+                        <button onclick="searchUserForApiKey()" class="btn-secondary">Cari User</button>
+                    </div>
+                    <div id="apiKeyUserResult" style="margin-top: 0.5rem; font-size: 0.9rem;"></div>
+                    <input type="hidden" id="targetUidForApi">
+                </div>
+
+                <div style="margin-bottom: 1rem;">
+                    <label style="display: block; margin-bottom: 0.5rem; color: var(--text-secondary);">Gemini API Key</label>
+                    <input type="password" id="inputUserApiKey" class="glass" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: 8px; color: var(--text-primary);" placeholder="AIzaSy...">
+                </div>
+
+                <div style="margin-bottom: 1.5rem;">
+                    <label style="display: block; margin-bottom: 0.5rem; color: var(--text-secondary);">Pilih Model Default</label>
+                    <select id="inputUserModel" class="glass" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: 8px; color: var(--text-primary); background: transparent;">
+                        <option value="gemini-1.5-flash" style="color: black;">Gemini 1.5 Flash</option>
+                        <option value="gemini-1.5-pro" style="color: black;">Gemini 1.5 Pro</option>
+                    </select>
+                </div>
+
+                <div style="display: flex; gap: 1rem;">
+                    <button onclick="testUserApiKey()" id="testApiBtn" class="btn-secondary" style="flex: 1;">Tes API Key</button>
+                    <button onclick="saveUserApiKey()" class="btn-primary" style="flex: 1;">Simpan API Key</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script type="module" src="scripts/admin.js"></script>
+</body>
+</html>

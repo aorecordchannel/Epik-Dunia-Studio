@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harga - Epik Dunia Studio</title>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <!-- Logo -->
+            <a href="index.html" class="logo">
+                <span class="logo-text">Epik Dunia <span class="accent">Studio</span></span>
+            </a>
+
+            <!-- Center Navigation -->
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Beranda</a></li>
+                <li><a href="produk.html" class="nav-link">Produk</a></li>
+                <li><a href="creator.html" class="nav-link">Creator</a></li>
+                <li><a href="harga.html" class="nav-link active">Harga</a></li>
+                <li><a href="news.html" class="nav-link">News</a></li>
+                <li><a href="komunitas.html" class="nav-link">Komunitas</a></li>
+            </ul>
+
+            <!-- Right Actions -->
+            <div class="nav-actions">
+                <div class="lang-selector">
+                    <button class="lang-btn">ID <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+                </div>
+                <a href="login.html" class="btn-login" id="nav-login-btn">Login</a>
+                <a href="#" onclick="openProtectedApp('lyricshot.html'); return false;" class="btn-primary">Coba Gratis</a>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header Padding -->
+    <div style="padding-top: 100px;"></div>
+
+    <!-- Pricing Section -->
+    <section id="harga" class="section">
+        <div class="section-container">
+            <h2 class="section-title">Paket <span class="accent-text">Langganan EDS</span></h2>
+            <p class="section-desc">Pilih paket yang sesuai dengan kebutuhan Anda. Transaksi dilakukan secara manual melalui konfirmasi admin.</p>
+            
+            <div id="pricing-message" style="display: none; padding: 1rem; border-radius: 8px; margin-bottom: 2rem; text-align: center; font-weight: 500;"></div>
+            
+            <div class="cards-grid pricing-grid">
+                
+                <!-- FREE -->
+                <div class="card pricing-card glass">
+                    <h3>Free</h3>
+                    <div class="price">Rp 0<span>/hari</span></div>
+                    <ul class="features">
+                        <li>Masa Aktif: Harian</li>
+                        <li><strong>100 Credit</strong> per hari</li>
+                        <li>Reset otomatis tiap hari</li>
+                        <li>Bisa ~10 Generate/hari</li>
+                    </ul>
+                    <button class="btn-secondary w-100" onclick="selectPlan('free')">Gunakan Gratis</button>
+                </div>
+                
+                <!-- BASIC -->
+                <div class="card pricing-card glass">
+                    <h3>Basic</h3>
+                    <div class="price">Rp 10.000<span>/bln</span></div>
+                    <ul class="features">
+                        <li>Masa Aktif: 1 Bulan</li>
+                        <li><strong>300 Credit</strong></li>
+                        <li>Cocok untuk pemula</li>
+                        <li>Bisa ~30 Generate</li>
+                    </ul>
+                    <button class="btn-secondary w-100" onclick="selectPlan('basic')">Pilih Paket Basic</button>
+                </div>
+                
+                <!-- PRO -->
+                <div class="card pricing-card premium glass glow">
+                    <div class="popular-badge">Paling Populer</div>
+                    <h3>Pro</h3>
+                    <div class="price">Rp 20.000<span>/bln</span></div>
+                    <ul class="features">
+                        <li>Masa Aktif: 1 Bulan</li>
+                        <li><strong>800 Credit</strong></li>
+                        <li>Cocok kreator aktif</li>
+                        <li>Bisa ~80 Generate</li>
+                    </ul>
+                    <button class="btn-primary w-100" onclick="selectPlan('pro')">Pilih Paket Pro</button>
+                </div>
+                
+                <!-- PREMIUM -->
+                <div class="card pricing-card glass">
+                    <h3>Premium</h3>
+                    <div class="price">Rp 30.000<span>/bln</span></div>
+                    <ul class="features">
+                        <li>Masa Aktif: 1 Bulan</li>
+                        <li><strong>2000 Credit</strong></li>
+                        <li>Cocok untuk studio serius</li>
+                        <li>Bisa ~200 Generate</li>
+                    </ul>
+                    <button class="btn-secondary w-100" onclick="selectPlan('premium')">Pilih Paket Premium</button>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- New Global Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-brand">
+                <div class="footer-logo" style="font-size: 1.8rem; font-weight: 800;">Epik Dunia <span style="color: var(--accent-blue);">Studio</span></div>
+                <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6;">AI creative workflow untuk kreator visioner.</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-col">
+                    <h4>Produk</h4>
+                    <a href="#">LyricShot AI</a>
+                    <a href="#">CineBoard Pro</a>
+                    <a href="#">StoryFrame AI</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Bantuan</h4>
+                    <a href="creator.html">Creator</a>
+                    <a href="komunitas.html">Komunitas</a>
+                    <a href="#">Bantuan</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p style="color: var(--text-secondary); font-size: 0.85rem;">&copy; 2026 Epik Dunia Studio. Hak Cipta Dilindungi.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script type="module" src="scripts/auth.js"></script>
+    <script type="module" src="scripts/pricing.js"></script>
+    <script src="scripts/main.js"></script>
+</body>
+</html>

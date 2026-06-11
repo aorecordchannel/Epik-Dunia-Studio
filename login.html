@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masuk - EDS Workspace</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Base CSS -->
+    <link rel="stylesheet" href="styles/main.css">
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: var(--bg-dark);
+            position: relative;
+        }
+        .login-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 3rem 2.5rem;
+            width: 100%;
+            max-width: 420px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            position: relative;
+            z-index: 10;
+        }
+        .login-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .login-header h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+        .login-header p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+        .form-control {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 0.8rem 1rem;
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s;
+        }
+        .form-control:focus {
+            outline: none;
+            border-color: #f97316;
+            background: rgba(255, 255, 255, 0.08);
+        }
+        .btn-primary {
+            width: 100%;
+            background: linear-gradient(135deg, #f97316, #f75500);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            padding: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin-bottom: 1rem;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(249, 115, 22, 0.3);
+        }
+        .btn-google {
+            width: 100%;
+            background: white;
+            color: #333;
+            border: none;
+            border-radius: 12px;
+            padding: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            transition: transform 0.2s;
+            margin-bottom: 1.5rem;
+        }
+        .btn-google:hover {
+            transform: translateY(-2px);
+            background: #f1f5f9;
+        }
+        .divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 1.5rem 0;
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+        }
+        .divider::before, .divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .divider:not(:empty)::before { margin-right: .5em; }
+        .divider:not(:empty)::after { margin-left: .5em; }
+        
+        .toggle-mode {
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+        .toggle-mode a {
+            color: #f97316;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .toggle-mode a:hover {
+            text-decoration: underline;
+        }
+        .error-message {
+            color: #ef4444;
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            padding: 0.8rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- Background Elements -->
+    <div class="glow" style="top: 20%; left: 30%; background: radial-gradient(circle, rgba(249,115,22,0.15) 0%, rgba(249,115,22,0) 70%);"></div>
+
+    <div class="login-card glass">
+        <div class="login-header">
+            <h2>Masuk ke EDS Workspace</h2>
+            <p>Platform perencana aplikasi cerdas Anda</p>
+        </div>
+
+        <div id="error-box" class="error-message"></div>
+
+        <form id="auth-form">
+            <div class="form-group">
+                <label for="email">Alamat Email</label>
+                <input type="email" id="email" class="form-control" placeholder="nama@email.com" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="password">Kata Sandi</label>
+                <input type="password" id="password" class="form-control" placeholder="••••••••" required>
+            </div>
+            
+            <button type="submit" id="submit-btn" class="btn-primary">Masuk</button>
+        </form>
+
+        <div class="divider">ATAU</div>
+
+        <button id="google-btn" class="btn-google">
+            <svg width="18" height="18" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/><path d="M1 1h22v22H1z" fill="none"/></svg>
+            Lanjutkan dengan Google
+        </button>
+
+        <div class="toggle-mode">
+            Belum punya akun? <a href="#" id="toggle-link">Daftar Akun Baru</a>
+        </div>
+        <div style="text-align: center; margin-top: 2rem;">
+            <a href="index.html" style="color: var(--text-secondary); text-decoration: none; font-size: 0.85rem;">&larr; Kembali ke Beranda</a>
+        </div>
+    </div>
+
+    <!-- Script to handle Logic -->
+    <script type="module">
+        import { loginWithEmail, registerWithEmail, loginWithGoogle, checkAuthAndRedirect } from './scripts/auth.js';
+
+        // Initialize protection (will redirect away if already logged in)
+        checkAuthAndRedirect();
+
+        let isLoginMode = true;
+        
+        const form = document.getElementById('auth-form');
+        const submitBtn = document.getElementById('submit-btn');
+        const googleBtn = document.getElementById('google-btn');
+        const toggleLink = document.getElementById('toggle-link');
+        const headerTitle = document.querySelector('.login-header h2');
+        const errorBox = document.getElementById('error-box');
+
+        // Toggle Login / Register
+        toggleLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            isLoginMode = !isLoginMode;
+            if (isLoginMode) {
+                headerTitle.textContent = "Masuk ke EDS Workspace";
+                submitBtn.textContent = "Masuk";
+                toggleLink.textContent = "Daftar Akun Baru";
+                toggleLink.previousSibling.textContent = "Belum punya akun? ";
+            } else {
+                headerTitle.textContent = "Buat Akun Baru EDS";
+                submitBtn.textContent = "Daftar";
+                toggleLink.textContent = "Masuk di sini";
+                toggleLink.previousSibling.textContent = "Sudah punya akun? ";
+            }
+            errorBox.style.display = 'none';
+        });
+
+        function showError(msg) {
+            errorBox.textContent = msg;
+            errorBox.style.display = 'block';
+        }
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            
+            submitBtn.disabled = true;
+            submitBtn.textContent = "Memproses...";
+            errorBox.style.display = 'none';
+
+            let result;
+            if (isLoginMode) {
+                result = await loginWithEmail(email, password);
+            } else {
+                result = await registerWithEmail(email, password);
+            }
+
+            if (!result.success) {
+                showError(result.error);
+                submitBtn.disabled = false;
+                submitBtn.textContent = isLoginMode ? "Masuk" : "Daftar";
+            }
+            // If success, checkAuthAndRedirect listener in auth.js will automatically redirect
+        });
+
+        googleBtn.addEventListener('click', async () => {
+            errorBox.style.display = 'none';
+            const result = await loginWithGoogle();
+            if (!result.success) {
+                showError(result.error);
+            }
+        });
+    </script>
+</body>
+</html>

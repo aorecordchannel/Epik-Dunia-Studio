@@ -1,0 +1,58 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Check if user is authenticated
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+    
+    // Check if user is modifying their own document
+    function isOwner(uid) {
+      return request.auth.uid == uid;
+    }
+    
+    // Users collection
+    match /users/{userId} {
+      // Users can only read their own data
+      allow read: if isAuthenticated() && isOwner(userId);
+      
+      // Users can create their own doc on registration
+      // But only specific fields (prevent setting themselves as admin or giving free credit)
+      allow create: if isAuthenticated() && isOwner(userId)
+                    && request.resource.data.role == "user"
+                    && request.resource.data.credit == 100
+                    && request.resource.data.plan == "free";
+                    
+      // Updates to sensitive fields (plan, credit, subscriptionEndAt) must be done by Admin/Backend
+      // Frontend users can update non-sensitive like displayName
+      allow update: if isAuthenticated() && isOwner(userId)
+                    && (!request.resource.data.diff(resource.data).affectedKeys()
+                        .hasAny(['role', 'plan', 'credit', 'subscriptionEndAt', 'subscriptionStatus', 'status']));
+    }
+    
+    // Plans collection
+    match /plans/{planId} {
+      // Anyone can read plans to display the pricing page
+      allow read: if true;
+      // Only backend can write
+      allow write: if false;
+    }
+    
+    // Transactions collection
+    match /transactions/{transactionId} {
+      // Users can only read transactions where their uid matches
+      allow read: if isAuthenticated() && resource.data.uid == request.auth.uid;
+      
+      // Users can create new pending transactions
+      allow create: if isAuthenticated() 
+                    && request.resource.data.uid == request.auth.uid
+                    && request.resource.data.status == "pending";
+                    
+      // Only admin backend can update transactions to "paid"
+      allow update: if false;
+    }
+    
+  }
+}

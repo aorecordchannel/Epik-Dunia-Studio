@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LyricShot AI - Epik Dunia Studio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
+    <style>
+        .app-container {
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+            background: var(--bg-darker);
+        }
+        .sidebar {
+            width: 300px;
+            background: rgba(15, 23, 42, 0.95);
+            border-right: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            padding: 1.5rem;
+            backdrop-filter: blur(20px);
+            z-index: 10;
+        }
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+            position: relative;
+        }
+        .input-group {
+            margin-bottom: 1rem;
+        }
+        .input-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+        .input-group input, .input-group select, .input-group textarea {
+            width: 100%;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 0.75rem;
+            color: var(--text-primary);
+            font-family: inherit;
+        }
+        .input-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+        .sub-panel {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .canvas-area {
+            flex: 1;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+        }
+        .result-box {
+            background: rgba(15, 23, 42, 0.8);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            min-height: 400px;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            white-space: pre-wrap;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Input -->
+        <div class="sidebar">
+            <div style="margin-bottom: 2rem; border-bottom: 1px solid var(--border-color); padding-bottom: 1rem;">
+                <div style="font-size: 1.2rem; font-weight: 800; font-family: 'Outfit';">Epik Dunia <span style="color: var(--accent-blue);">Studio</span></div>
+                <div style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 0.2rem;">LyricShot AI</div>
+            </div>
+
+            <!-- Paket Info -->
+            <div class="sub-panel" id="subscriptionPanel">
+                <div style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 0.5rem;">Memuat data paket...</div>
+            </div>
+
+            <div style="flex: 1; overflow-y: auto; padding-right: 0.5rem;">
+                <div class="input-group">
+                    <label>Lirik Lagu (Wajib)</label>
+                    <textarea id="lyricInput" placeholder="Masukkan lirik lagu di sini... Pisahkan per bait/chorus agar AI lebih mudah mendeteksi."></textarea>
+                </div>
+
+                <div class="input-group">
+                    <label>Genre / Vibe Musik (Opsional)</label>
+                    <input type="text" id="genreInput" placeholder="Contoh: Pop, Rock Melankolis, Cyberpunk...">
+                </div>
+
+                <div class="input-group">
+                    <label>Mood Video (Opsional)</label>
+                    <input type="text" id="moodInput" placeholder="Contoh: Sedih, Energik, Misterius...">
+                </div>
+
+                <div class="input-group">
+                    <label>Pilihan Output</label>
+                    <select id="outputMode">
+                        <option value="full" style="color: black;">Full Mode (Storyboard + Prompt)</option>
+                        <option value="storyboard" style="color: black;">Storyboard Only</option>
+                        <option value="prompt" style="color: black;">Video Prompt Only</option>
+                    </select>
+                </div>
+            </div>
+
+            <button id="generateBtn" class="btn-primary" style="margin-top: 1rem; width: 100%;">Generate Konsep (-10 Credit)</button>
+        </div>
+
+        <!-- Main Canvas -->
+        <div class="main-content">
+            <header style="padding: 1.5rem 2rem; border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(20px);">
+                <h2 style="font-family: 'Outfit'; font-size: 1.2rem; font-weight: 600;">Canvas Konsep</h2>
+                <a href="produk.html" class="btn-secondary" style="padding: 0.5rem 1rem; font-size: 0.85rem;">Kembali ke Dashboard</a>
+            </header>
+
+            <div class="canvas-area">
+                <div id="resultCanvas" class="result-box">
+                    Hasil generate AI akan muncul di sini...
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script type="module">
+        import { requireLogin } from './scripts/auth-guard.js';
+        requireLogin('lyricshot.html');
+    </script>
+    <script type="module" src="scripts/lyricshot.js"></script>
+</body>
+</html>
