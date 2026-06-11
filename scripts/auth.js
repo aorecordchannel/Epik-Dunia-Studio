@@ -77,6 +77,7 @@ if (auth) {
             const logoutBtn = document.getElementById('nav-logout-btn');
             if (logoutBtn) logoutBtn.remove();
         }
+        }
     });
 }
 
